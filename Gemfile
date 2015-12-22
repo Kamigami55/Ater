@@ -29,7 +29,7 @@ gem "carrierwave"
 gem "mini_magick"
 
 # Semantic UI
-gem 'semantic-ui-rails'
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
