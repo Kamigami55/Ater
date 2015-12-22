@@ -1,10 +1,11 @@
 <div class="ui top fixed inverted menu">
-  <a class="item">Ater</a>
-  <a class="item">編輯器</a>
-  <a class="item">教學</a>
-  <a class="item">關於Ater</a>
+  <%= link_to 'Ater', root_path, :class => 'header item' %>
+  <%= link_to '編輯器', editor_path, :class => 'item' %>
+  <%= link_to '教學', tutorial_path, :class => 'disabled item' %>
+  <%= link_to '關於Ater', about_path, :class => 'disabled item' %>
+
   <div class="right menu">
-    <a class="item"><i class="user icon"></i>登入</a>
-    <a class="item">註冊</a>
+    <a class="disabled item">登入</a>
+    <a class="disabled item">註冊</a>
   </div>
 </div>
