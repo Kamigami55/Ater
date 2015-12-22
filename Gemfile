@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Redactor WYSIWYG Text Editor
 gem 'redactor-rails'
+gem "carrierwave"
+gem "mini_magick"
 
 # Semantic UI
 gem 'semantic-ui-rails'

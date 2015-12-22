@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require_tree .
 //= require redactor-rails
+//= require redactor-rails/langs/zh_tw
 
