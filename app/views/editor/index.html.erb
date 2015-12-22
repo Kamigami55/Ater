@@ -1,1 +1,24 @@
-<%= text_area_tag :editor, "", :class => "redactor", :rows => 40, :cols => 120 %>
+<div class="ui container">
+	<div class="ui four stackable cards">
+		<% @documents.each do |d|%>
+			<div class="ui card">
+				<div class="content">
+				    <div class="header"><%= d.title %></div>
+				</div>
+				<div class="content">
+					<%= d.layers.first.sections.first.content %>
+				</div>
+				<%= link_to show_document_path(d) do %>
+				    <div class="ui bottom attached button">
+					    <i class="edit icon"></i>查看文件
+				    </div>
+			    <% end %>
+			</div>
+		<% end %>
+	</div>
+	<%= link_to new_document_path do %>
+		<button class="ui primary button">
+			<i class="add icon"></i>新增文件
+		</button>
+	<% end %>
+</div>

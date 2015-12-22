@@ -5,7 +5,14 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'pages#index'
-  get 'editor' => 'editor#index', :as => 'editor'
+
+
+
+  get 'editor' => 'editor#index', :as => 'documents'
+  get 'editor/show/:id' => 'editor#show', :as => 'show_document'
+  get 'editor/edit/:id' => 'editor#edit', :as => 'edit_document'
+  get 'editor/new' => 'editor#new', :as => 'new_document'
+  patch 'editor/update/:id' => 'editor#update', :as => 'update_document'
   get 'tutorial' => 'pages#tutorial', :as => 'tutorial'
   get 'about' => 'pages#about', :as => 'about'
 

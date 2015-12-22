@@ -1,0 +1,24 @@
+<div class="ui container">
+	<h1><%= @document.title %></h1>
+	<!--<%= text_area_tag :editor, "", :class => "redactor", :rows => 40, :cols => 120 %>-->
+	
+	<%= form_for @document, :url => {:controller =>"editor", :action => "update", :id => @document }  do |f| %>
+
+	
+	    <%= f.label :title, "標題" %>
+	    <%= f.text_field :title %>
+
+		<%= fields_for @document.layers.first.sections.first, :section do |s| %>
+		    <%= s.label :content, "內容" %>
+		    <%= s.text_area :content, :class => 'redactor' %>
+	    <% end %>
+	    <%= f.submit "儲存變更" %>
+	<% end %>
+
+
+	<%= link_to show_document_path(@document) do %>
+		<button class="ui button">
+			<i class="remove icon"></i>捨棄變更
+		</button>
+	<% end %>
+</div>
