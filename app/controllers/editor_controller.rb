@@ -12,10 +12,10 @@ class EditorController < ApplicationController
 		@document = Document.find(params[:id])
 	end
 	def create
-		@doeument = Document.new(document_params)
+		@document = Document.new(document_params)
 		@document.save
 
-	    redirect_to :action => :index
+	    redirect_to :action => :show, :id => @document
 	end
 	def update
 		@document = Document.find(params[:id])

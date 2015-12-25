@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'editor/show/:id' => 'editor#show', :as => 'show_document'
   get 'editor/edit/:id' => 'editor#edit', :as => 'edit_document'
   get 'editor/new' => 'editor#new', :as => 'new_document'
+  post 'editor/create' => 'editor#create', :as => 'create_document'
   patch 'editor/update/:id' => 'editor#update', :as => 'update_document'
   get 'tutorial' => 'pages#tutorial', :as => 'tutorial'
   get 'about' => 'pages#about', :as => 'about'
