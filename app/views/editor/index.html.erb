@@ -6,7 +6,8 @@
 				    <div class="header"><%= d.title %></div>
 				</div>
 				<div class="content">
-					<%= d.layers.first.sections.first.content %>
+					<%= d.content.html_safe %>
+					
 				</div>
 				<%= link_to show_document_path(d) do %>
 				    <div class="ui bottom attached button">

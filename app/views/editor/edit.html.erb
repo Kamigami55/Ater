@@ -8,10 +8,8 @@
 	    <%= f.label :title, "標題" %>
 	    <%= f.text_field :title %>
 
-		<%= fields_for @document.layers.first.sections.first, :section do |s| %>
-		    <%= s.label :content, "內容" %>
-		    <%= s.text_area :content, :class => 'redactor' %>
-	    <% end %>
+	    <%= f.label :content, "內容" %>
+	    <%= f.text_area :content, :class => 'redactor' %>
 	    <%= f.submit "儲存變更" %>
 	<% end %>
 

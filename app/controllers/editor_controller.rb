@@ -20,13 +20,13 @@ class EditorController < ApplicationController
 	def update
 		@document = Document.find(params[:id])
 		@document.update(document_params)
-		@document.layers.first.sections.first.update(params[:section])
+		# @document.layers.first.sections.first.update(params[:section])
 
 		redirect_to :action => :show, :id => @document
 	end
 
 	private
 		def document_params
-			params.require(:document).permit(:title)
+			params.require(:document).permit(:title, :content)
 		end
 end
