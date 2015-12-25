@@ -13,8 +13,18 @@
 					<div class="content">
 					    <div class="header"><%= d.title %></div>
 					    <div class="meta"><%= d.updated_at.in_time_zone("Taipei").strftime("%F %T") %></div>
-						<div class="description"><%= Nokogiri::HTML(d.content).content %></div>
-						
+						<div class="description">
+							<% sections = [] %>
+							<% d.layers.each do |layer| %>
+								<% layer.sections.each do |section| %>
+									<% sections.push(section) %>
+								<% end %>
+							<% end %>
+							<% sections.sort_by! {|section| section[:order]} %>
+							<% sections.each do |section| %>
+								<%= Nokogiri::HTML(section.content).content %>
+							<% end %>
+						</div>
 					</div>
 				<% end %>
 			<% end %>

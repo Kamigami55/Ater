@@ -1,7 +1,17 @@
 <div class="ui two column centered grid">
 	<div class="column">
 		<h1><%= @document.title %></h1>
-		<p><%= @document.content.html_safe %></p>
+		<% sections = [] %>
+		<% @document.layers.each do |layer| %>
+			<% layer.sections.each do |section| %>
+				<% sections.push(section) %>
+			<% end %>
+		<% end %>
+		<% sections.sort_by! {|section| section[:order]} %>
+		<% sections.each do |section| %>
+			<%= section.content.html_safe %>
+		<% end %>
+		
 
 		<%= link_to edit_document_path(@document) do %>
 			<button class="ui right floated button">
