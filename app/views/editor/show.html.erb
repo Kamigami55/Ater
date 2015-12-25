@@ -1,5 +1,12 @@
-<div class="ui two column centered grid">
-	<div class="column">
+<div class="ui centered grid">
+	<div class="four wide column">
+		<div class="ui inverted vertical menu">
+			<% @document.layers.each do |layer| %>
+				<a id='layer-<%= layer.name %>' class='red item'><%= layer.name %></a>
+			<% end %>
+		</div>
+	</div>
+	<div class="eight wide column">
 		<h1><%= @document.title %></h1>
 		<% sections = [] %>
 		<% @document.layers.each do |layer| %>
@@ -9,7 +16,7 @@
 		<% end %>
 		<% sections.sort_by! {|section| section[:order]} %>
 		<% sections.each do |section| %>
-			<%= section.content.html_safe %>
+			<div class='layer-<%= section.layer.name %>'><%= section.content.html_safe %></div>
 		<% end %>
 		
 
@@ -25,3 +32,19 @@
 		<% end %>
 	</div>
 </div>
+
+<script>
+	$(document).ready(function(){
+		$('.item').click(function(e){
+			$(this).toggleClass('active');
+			classname = $(this).attr('id');
+			$('.'+classname).toggleClass('hidden');
+		});
+	});	
+</script>
+
+<style>
+	.hidden {
+		display: none;
+	}
+</style>
