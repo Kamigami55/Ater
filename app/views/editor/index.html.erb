@@ -1,25 +1,30 @@
-<div class="ui container">
-	<div class="ui four stackable cards">
-		<% @documents.each do |d|%>
-			<div class="ui card">
-				<div class="content">
-				    <div class="header"><%= d.title %></div>
-				</div>
-				<div class="content">
-					<%= d.content.html_safe %>
-					
-				</div>
-				<%= link_to show_document_path(d) do %>
-				    <div class="ui bottom attached button">
-					    <i class="edit icon"></i>查看文件
-				    </div>
-			    <% end %>
-			</div>
+<div class="ui two column centered grid">
+	<div class="column">
+		
+		<%= link_to new_document_path, :class => 'item' do %>
+			<button class='ui right floated primary button'>
+				<i class="add icon"></i>新增文件
+			</button>
 		<% end %>
+		
+		<div class="ui three stackable cards">
+			<% @documents.each do |d|%>
+				<div class="ui card">
+					<div class="content">
+					    <div class="header"><%= d.title %></div>
+					</div>
+					<div class="content">
+						<%= d.content.html_safe %>
+						
+					</div>
+					<%= link_to show_document_path(d) do %>
+					    <div class="ui bottom attached button">
+						    <i class="edit icon"></i>查看文件
+					    </div>
+				    <% end %>
+				</div>
+			<% end %>
+		</div>
+		
 	</div>
-	<%= link_to new_document_path do %>
-		<button class="ui primary button">
-			<i class="add icon"></i>新增文件
-		</button>
-	<% end %>
 </div>

@@ -1,15 +1,17 @@
-<div class="ui container">
-	<h1><%= @document.title %></h1>
-	<p><%= @document.content.html_safe %></p>
+<div class="ui two column centered grid">
+	<div class="column">
+		<h1><%= @document.title %></h1>
+		<p><%= @document.content.html_safe %></p>
 
-	<%= link_to edit_document_path(@document) do %>
-		<button class="ui button">
-			<i class="edit icon"></i>編輯文件
-		</button>
-	<% end %>
-	<%= link_to documents_path do %>
-		<button class="ui button">
-			返回
-		</button>
-	<% end %>
+		<%= link_to edit_document_path(@document) do %>
+			<button class="ui right floated button">
+				<i class="edit icon"></i>編輯文件
+			</button>
+		<% end %>
+		<%= link_to documents_path do %>
+			<button class="ui button">
+				返回
+			</button>
+		<% end %>
+	</div>
 </div>
