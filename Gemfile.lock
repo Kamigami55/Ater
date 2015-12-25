@@ -177,6 +177,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick
+  nokogiri
   rails (= 4.2.5)
   redactor-rails
   sass-rails (~> 5.0)
