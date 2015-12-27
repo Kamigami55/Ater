@@ -33,6 +33,8 @@ gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 
 gem "nokogiri"
 
+gem 'wymeditor-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
