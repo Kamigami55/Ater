@@ -1,5 +1,13 @@
-<div class="ui two column centered grid">
-	<div class="column">
+<div class="ui centered grid">
+	<div class="four wide column">
+		<button id='new_layer' class='ui primary button'>新增文字層</button>
+		<div class="ui inverted vertical menu">
+			<% @document.layers.each do |layer| %>
+				<a id='layer-<%= layer.name %>' class='red item'><%= layer.name %></a>
+			<% end %>
+		</div>
+	</div>
+	<div class="eight wide column">
 		<!--<%= text_area_tag :editor, "", :class => "redactor", :rows => 40, :cols => 120 %>-->
 		
 		<%= form_for @document, :url => {:controller =>"editor", :action => "update", :id => @document }  do |f| %>
@@ -10,7 +18,19 @@
 			<br>
 			<br>
 
-		    <%= f.text_area :content, :class => 'redactor' %>
+			<textarea id='content' name='document[content]'>
+				<% sections = [] %>
+				<% @document.layers.each do |layer| %>
+					<% layer.sections.each do |section| %>
+						<% sections.push(section) %>
+					<% end %>
+				<% end %>
+				<% sections.sort_by! {|section| section[:order]} %>
+				<% sections.each do |section| %>
+					<%= section.content.html_safe %>
+				<% end %>
+			</textarea>
+		    
 		    
 		    <%= f.submit "儲存變更", :class => 'ui right floated primary button' %>
 		    <%= link_to show_document_path(@document) do %>
@@ -21,3 +41,32 @@
 		<% end %>
 	</div>
 </div>
+
+<script>
+	$(document).ready(function(){
+		$('#content').redactor();
+		$('#content').on('click.callback.redactor', function() {
+		   console.log(this.code.get());
+		});
+
+		$('.item').click(function(e){
+			$('.item').removeClass('active');
+			$(this).toggleClass('active');
+			classname = $(this).attr('id');
+			//$('.'+classname).dosomthing
+		});
+
+		$('#new_layer').click(function(e){
+			name = prompt("新圖層的名稱：");
+			$('.menu').append("<a id='layer-"+name+"' class='red item'>"+name+"</a>");
+
+			$('.item').click(function(e){
+				$('.item').removeClass('active');
+				$(this).toggleClass('active');
+				classname = $(this).attr('id');
+				//$('.'+classname).dosomthing
+			});
+		})
+	});
+
+</script>

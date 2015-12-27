@@ -8,16 +8,18 @@
 	</div>
 	<div class="eight wide column">
 		<h1><%= @document.title %></h1>
-		<% sections = [] %>
-		<% @document.layers.each do |layer| %>
-			<% layer.sections.each do |section| %>
-				<% sections.push(section) %>
+		<div>
+			<% sections = [] %>
+			<% @document.layers.each do |layer| %>
+				<% layer.sections.each do |section| %>
+					<% sections.push(section) %>
+				<% end %>
 			<% end %>
-		<% end %>
-		<% sections.sort_by! {|section| section[:order]} %>
-		<% sections.each do |section| %>
-			<div class='layer-<%= section.layer.name %>'><%= section.content.html_safe %></div>
-		<% end %>
+			<% sections.sort_by! {|section| section[:order]} %>
+			<% sections.each do |section| %>
+				<%= section.content.html_safe %>
+			<% end %>
+		</div>
 		
 
 		<%= link_to edit_document_path(@document) do %>
