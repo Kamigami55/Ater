@@ -16,3 +16,11 @@ $ bundle install
 $ rake db:reset
 $ rails s
 ```
+
+## To-Do
+
+- [ ] Editable documents
+- [ ] Removeable documents
+- [ ] Account system
+- [ ] Better UI
+- [ ] Catagory ststem
