@@ -29,4 +29,7 @@ $ rails s
 - [ ] Removeable documents
 - [ ] Account system
 - [ ] Better UI
+- [ ] Tutorial page & About page
 - [ ] Catagory ststem
+- [ ] Add license info
+- [ ] Document import & export
