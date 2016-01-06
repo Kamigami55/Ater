@@ -30,6 +30,6 @@ $ rails s
 - [ ] Account system
 - [ ] Better UI
 - [ ] Tutorial page & About page
-- [ ] Catagory ststem
+- [ ] Catagory & Tag ststem
 - [ ] Add license info
 - [ ] Document import & export
